@@ -1,30 +1,30 @@
 # ChatRoomSimulator
 Project Title: Java Concurrency-Based Chatroom Simulator
 
-#Overview:
+# Overview:
 The Chatroom Simulator is a console-based Java application designed to emulate the fundamental behaviors of a multi-user chat environment. It focuses on demonstrating concurrent operations, message flow management, and user presence tracking without needing a full-fledged network or GUI. The simulator generates dynamic user activity, allowing observation of messages being sent and received in a simulated real-time setting.
 
-#Core Features:
+# Core Features:
 
-. User Simulation (UserSimulator):
+1. User Simulation (UserSimulator):
 
 Creates virtual users that autonomously join, send messages, and leave the chatroom.
 Simulates various user actions (e.g., typing delays, random message selection) using Java's Random utility.
 Each user operates independently within its own thread (Runnable), showcasing concurrent execution.
 
-.User Status Management (UserStatus):
+2. User Status Management (UserStatus):
 
 Tracks the online/offline status of each simulated user using a simple boolean flag.
 Provides methods for users to "go online" and "go offline," reflecting their presence in the chat.
 
-.Message Handling (MessageHandler):
+3. Message Handling (MessageHandler):
 
 Manages the lifecycle of messages from creation to "broadcast."
 Utilizes a ConcurrentLinkedQueue for thread-safe handling of incoming messages from multiple users.
 Maintains a historical log of all messages (Collections.synchronizedList), allowing retrieval of recent chat history.
 Simulates message distribution by printing messages to the console as they are processed.
 
-.Chatroom Orchestration (ChatRoom):
+4. Chatroom Orchestration (ChatRoom):
 
 The central component that sets up and manages the entire simulation.
 Responsible for creating the specified number of users and initiating their respective UserSimulator threads.
@@ -32,12 +32,12 @@ Employs a java.util.concurrent.ExecutorService (thread pool) to efficiently mana
 Controls the overall simulation duration and periodically updates the console with chat status (online users, recent messages, total messages).
 Gracefully shuts down all user simulators and the thread pool upon completion.
 
-#Technical Stack:
+# Technical Stack:
 
-.Language: Java
-.Concurrency: java.lang.Runnable, java.util.concurrent.ExecutorService, java.util.concurrent.TimeUnit, java.util.concurrent.atomic.AtomicInteger
-.Collections: java.util.List, java.util.Map, java.util.ArrayList, java.util.concurrent.ConcurrentHashMap, java.util.concurrent.ConcurrentLinkedQueue, .java.util.Collections.synchronizedList
-.Time & Date: java.time.LocalDateTime, java.time.format.DateTimeFormatter
+1. Language: Java
+2. Concurrency: java.lang.Runnable, java.util.concurrent.ExecutorService, java.util.concurrent.TimeUnit, java.util.concurrent.atomic.AtomicInteger
+3. Collections: java.util.List, java.util.Map, java.util.ArrayList, java.util.concurrent.ConcurrentHashMap, java.util.concurrent.ConcurrentLinkedQueue, java.util.Collections.synchronizedList
+4. Time & Date: java.time.LocalDateTime, java.time.format.DateTimeFormatter
 
 #How it Works:
 
